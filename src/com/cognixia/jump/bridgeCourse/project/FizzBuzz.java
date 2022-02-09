@@ -28,6 +28,34 @@ public class FizzBuzz {
 
 		}
 
+		public static void fizzBuzz(int n) {
+				String[] stringArray = new String[n];
+
+				System.out.println("\n");
+
+				for (int i = 0; i < n; i++) {
+						if (isPrime(i)) {
+								continue; // Will insert null into array[i]
+
+						} else if (i % 3 == 0 && i % 5 == 0) {
+								stringArray[i] = "FizzBuzz ";
+						} else if (i % 3 == 0) {
+								stringArray[i] = "Fizz ";
+						} else if (i % 5 == 0) {
+								stringArray[i] = "Buzz ";
+						} else {
+								stringArray[i] = String.valueOf(i); // Convert the int type to string to prevent type mismatch
+						}
+				}
+
+				for (int i = 0; i < stringArray.length; i++) {
+						if (stringArray[i] == null) {
+								continue; // Need to filter out the nulls so they don't display
+						}
+						System.out.println(stringArray[i]);
+				}
+		}
+
 		public static boolean isPrime(int n) {
 				if (n <= 1)
 						return false;
@@ -39,24 +67,4 @@ public class FizzBuzz {
 				}
 				return true;
 		}
-
-		public static void fizzBuzz(int n) {
-				System.out.println("\n\n");
-				for (int i = 0; i < n; i++) {
-						if (isPrime(i)) {
-								continue;
-						}
-						if (i % 3 == 0 && i % 5 == 0) {
-								System.out.println("FizzBuzz ");
-						} else if (i % 3 == 0) {
-								System.out.println("Fizz ");
-						} else if (i % 5 == 0) {
-								System.out.println("Buzz ");
-						} else {
-								System.out.println(i);
-						}
-
-				}
-		}
-
 }
